@@ -8,8 +8,8 @@ var app = module.exports = loopback();
 app.start = function() {
   // start the web server
   return app.listen(function() {
-    app.set('port', process.env.PORT);
-    app.set('host', process.env.IP);
+    app.set('port', process.env.PORT || 3000);
+    app.set('host', process.env.IP || "0.0.0.0");
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
